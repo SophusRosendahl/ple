@@ -43,8 +43,9 @@ Running log of decisions for our PLE competition entry. Newest at the bottom of 
 9. **Pipeline per task:**
    1. *Ingest* all files: an inventory of inputs (images, rendered PDFs, MCP tool lists,
       the stub and its expected output path).
-   2. *Requirements and evaluator*: a requirement list and `evaluate(facts, design)`, written
-      against the shape of the facts.
+   2. *Deliverables, requirements and evaluator*: first the deliverables manifest (decision 17)
+      with a placeholder written for each deliverable; then the requirement list and
+      `evaluate(facts, design)`, written against the shape of the facts.
    3. *Model of reality*: facts reconstructed from the drawings, each tied to its source,
       checked for consistency.
    4. *Test the evaluator* on the model of reality: deliberately broken designs fail, a
@@ -100,6 +101,17 @@ Running log of decisions for our PLE competition entry. Newest at the bottom of 
     rules, negative requirements) with an LLM-judge role for the reasoning. Both are tested the
     same way: a deliberately broken input (an answer removed, the wrong source's value adopted)
     must trip the check aimed at it.
+17. **Deliverables are defined first, in a manifest.** A task is defined by three things:
+    deliverables, requirements and objectives. Each deliverable records what it is (a file, an
+    app action, or the closing `done` message, which the rubric judge also reads), its exact path
+    or app target, its format (e.g. IFC4 via a script, raw STEP, `.docx` from a given template),
+    a content map (which requirements and asks it must carry), and its emitter and
+    verification.
+    - Before any design work, the manifest is checked against the prompt: every named
+      deliverable is present and every path matches exactly.
+    - A minimal valid placeholder is written for each deliverable as soon as the manifest
+      exists, then replaced as the design improves, so a crash or timeout still leaves
+      something gradable.
 
 ## Proposed (to confirm)
 
