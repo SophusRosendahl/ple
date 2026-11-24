@@ -37,7 +37,11 @@ Running log of decisions for our PLE competition entry. Newest at the bottom of 
       checked for consistency.
    4. *Test the evaluator* on the model of reality: deliberately broken designs fail, a
       compliant baseline passes.
-   5. *Design loop*: design → emit → evaluate → fix.
+   5. *Design loop*: design → emit → evaluate → fix, iterated until good. Stop at the first of:
+      all gates pass with zero violations and the objective is close to a lower bound the agent
+      computes itself; no improvement for N iterations; or the time reserved for freezing is
+      reached. Always keep the best valid design so far (freeze that, not the latest attempt),
+      and never trade a passing gate for a better objective.
    6. *Freeze*: emit the final deliverable and run the generic checks on exactly the file
       that gets graded.
 
