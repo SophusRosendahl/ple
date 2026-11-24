@@ -28,6 +28,19 @@ Running log of decisions for our PLE competition entry. Newest at the bottom of 
 8. **Checks run on the emitted deliverable against the full set of facts**, not just the
    elements the agent chose to model.
 
+9. **Pipeline per task:**
+   1. *Ingest* all files: an inventory of inputs (images, rendered PDFs, MCP tool lists,
+      the stub and its expected output path).
+   2. *Requirements and evaluator*: a requirement list and `evaluate(facts, design)`, written
+      against the shape of the facts.
+   3. *Model of reality*: facts reconstructed from the drawings, each tied to its source,
+      checked for consistency.
+   4. *Test the evaluator* on the model of reality: deliberately broken designs fail, a
+      compliant baseline passes.
+   5. *Design loop*: design → emit → evaluate → fix.
+   6. *Freeze*: emit the final deliverable and run the generic checks on exactly the file
+      that gets graded.
+
 ## To test
 
 - **Separate evaluator-author role** (evaluator written by a different role from the designer,
