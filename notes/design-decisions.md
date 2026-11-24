@@ -82,6 +82,24 @@ Running log of decisions for our PLE competition entry. Newest at the bottom of 
     its source. It is evaluated and improved first; writing the Word document is the emitter
     step. The freeze step then checks that the document reflects the analysis (every finding
     present, numbers match, format rules met).
+13. **The model of reality records more than values.** Each fact carries its source, and the
+    model also records: which source governs when two disagree (e.g. the certified test report
+    over a client's revised figure); an as-of date, with later documents filtered out; and an
+    explicit list of what is missing or contradictory (e.g. "no run identifier exists"). In three
+    of the four tasks reviewed, that list is where many of the points are.
+14. **Deliverables are not only files.** Besides generated files, a deliverable can be an action
+    in a task app (e.g. opening a work package in OpenProject over MCP) or a provided template to
+    fill while keeping its format. Each has its own emitter, and the freeze step verifies each
+    one: query the app's state; check the template's structure was kept.
+15. **The ingest step inventories the tools in the task container.** Containers differ: the
+    rubric tasks have python-docx, openpyxl, PyMuPDF and LibreOffice; the site-model task has bare
+    Python with no ifcopenshell. Library checks use what is present, or bring a pure-Python
+    fallback (e.g. our own minimal STEP reader/writer for IFC).
+16. **Evaluator types vary by task.** Geometry tasks get fully deterministic evaluators. Document
+    tasks combine deterministic checks (every ask answered, numbers recomputed from facts, format
+    rules, negative requirements) with an LLM-judge role for the reasoning. Both are tested the
+    same way: a deliberately broken input (an answer removed, the wrong source's value adopted)
+    must trip the check aimed at it.
 
 ## Proposed (to confirm)
 
