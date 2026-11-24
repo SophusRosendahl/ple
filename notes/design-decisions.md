@@ -112,8 +112,27 @@ Running log of decisions for our PLE competition entry. Newest at the bottom of 
     - A minimal valid placeholder is written for each deliverable as soon as the manifest
       exists, then replaced as the design improves, so a crash or timeout still leaves
       something gradable.
+18. **The harness is a staged workflow that gives the agent feedback.** The model does the work
+    inside each stage; the workflow defines when a stage is done and says what is wrong when it
+    is not.
+    - Each stage (ingest, deliverables, requirements, reality model, evaluator test, design loop,
+      freeze) produces an artifact with a contract, and a checker returns structured feedback:
+      specific items ("ask #4 maps to no requirement", "broken design 'pipe over PDU' passed"),
+      not just pass/fail.
+    - The agent cannot leave a stage while its contract fails. Going back to an earlier stage is
+      allowed and logged with a reason (e.g. a design failure traced to a wrong fact reopens the
+      reality model, then the evaluator is re-tested).
+    - Time is budgeted per stage; the freeze stage always keeps its reserve.
+    - The model always sees a compact status: current stage, open feedback items, time left,
+      best result so far.
+    - Every run leaves a trace (stages, feedback items, backward steps, time per stage), so we
+      can improve the workflow itself across dev tasks, not just the prompts.
 
 ## Proposed (to confirm)
+
+- **The workflow engine is code, not a prompt.** Stage contracts, checkers, transitions and
+  budgets are enforced in code; the model works inside the stages. The alternative (a long
+  prompt describing the workflow) is roughly what the stock vendor harnesses do.
 
 - **Every requirement is must-meet.** The harness optimises objectives only among fully
   compliant designs, even where a grader's formula would reward trading a scored violation
