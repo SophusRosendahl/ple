@@ -58,6 +58,24 @@ Running log of decisions for our PLE competition entry. Newest at the bottom of 
     direction (minimise / maximise) and its priority relative to feasibility, because tasks combine
     them differently: task 1 multiplies compliance by the objective; the site-model task puts
     feasibility first and, in blind scoring, does not count the objective at all.
+    - A requirement has a threshold and is met or not; meeting it "better" earns nothing. An
+      objective keeps rewarding improvement.
+    - Severity says how the grader punishes a miss: *gate* (task scores 0), *scored* (partial
+      credit lost: a compliance rate, a fraction of requirements met, or a rubric criterion),
+      *advisory* (reported only). Scored requirements are still requirements, not objectives.
+    - Out-of-scope items are **negative requirements** ("must not cite X as a blocker"), not a
+      separate category.
+12. **Document deliverables go through the same design loop.** For a memo or letter the design
+    is the analysis: determinations, adopted values, calculations, findings and gaps, each with
+    its source. It is evaluated and improved first; writing the Word document is the emitter
+    step. The freeze step then checks that the document reflects the analysis (every finding
+    present, numbers match, format rules met).
+
+## Proposed (to confirm)
+
+- **Every requirement is must-meet.** The harness optimises objectives only among fully
+  compliant designs, even where a grader's formula would reward trading a scored violation
+  for a better objective.
 
 ## To test
 
