@@ -2,6 +2,18 @@
 
 Running log of decisions for our PLE competition entry. Newest at the bottom of each section.
 
+## Competition context
+
+- Runs on Kaggle, November 9, 2026 – January 5, 2027. Prizes 250K / 100K / 50K USD.
+- Models in the official evaluation are supplied (and paid for) by the evaluator. Development
+  runs, including the dev-set run whose artifacts we submit, are billed to our own Google Cloud
+  project: no sponsored credits. Keep iteration cheap: build and test without model calls
+  where possible, run on a few tasks, use a cheaper model for plumbing tests.
+- Leaderboard on the 56 hidden tasks (stock vendor harnesses): Gemini 4 Neon 0.507, Claude
+  Opus 5.5 0.483, Gemini 4 Carbon 0.468, Gemini 3.8 Flash 0.275. Lead candidate models: Neon
+  and Opus 5.5.
+- Official starter repo: `physical-engineerings-last-exam/submission-template`.
+
 ## Decided
 
 1. **Deliverables are frozen designs, not programs.** The delivered file (e.g. `solution.py`)
