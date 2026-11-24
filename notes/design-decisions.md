@@ -45,6 +45,20 @@ Running log of decisions for our PLE competition entry. Newest at the bottom of 
    6. *Freeze*: emit the final deliverable and run the generic checks on exactly the file
       that gets graded.
 
+10. **Requirements are captured in a YAML register, not SysML.** One entry per requirement: id,
+    text, source, kind (deliverable | information | geometric | topological),
+    severity (gate | score | advisory), scope as ifcopenshell selectors, threshold, and `verify`
+    (the check that proves it). The traceability ideas come from SysML (derive / satisfy / verify);
+    the notation does not. Information requirements follow buildingSMART IDS concepts; geometric
+    and topological ones are Python checks from the library.
+    *Open:* vendor `ifctester` (not in the task container), or keep information checks in the
+    register.
+11. **Requirements and objectives are kept separate.** Requirements decide feasibility (pass/fail,
+    or a compliance rate); objectives rank feasible designs. An objective records its formula, its
+    direction (minimise / maximise) and its priority relative to feasibility, because tasks combine
+    them differently: task 1 multiplies compliance by the objective; the site-model task puts
+    feasibility first and, in blind scoring, does not count the objective at all.
+
 ## To test
 
 - **Separate evaluator-author role** (evaluator written by a different role from the designer,
